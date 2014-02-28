@@ -1,0 +1,21 @@
+<!doctype html>
+<html data-ng-app="UseCaseApp">
+    <head>
+        <title></title>
+        <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="vendor/angular/angular.min.js"></script>
+        <script src="vendor/angular-route/angular-route.min.js"></script>
+        <script src="dist/usecase.js"></script>
+    </head>
+    <body>
+        <section data-ng-controller="DocumentsCtrl as documents">
+            <button type="button" data-ng-click="documents.reset()"><i class="glyphicon glyphicon-refresh"></i> Reset</button>
+            <input type="text" data-ng-model="documents.name"/>
+            <button type="button" data-ng-click="documents.create();"><i class="glyphicon glyphicon-plus"></i></button>
+            <ul>
+                <li data-ng-repeat="key in documents.list()"><a data-ng-href="#/doc/{{ key }}">{{ key }}</a></li>
+            </ul>
+        </section>
+        <section data-ng-view></section>
+    </body>
+</html>
